@@ -19,7 +19,15 @@ pipeline {
     stage('Build'){
       steps {
         sh "ansible --version"
+        sh "ansible-galaxy collection build myorg/common"
       }
     }
+
+    stage('Save Artifacts'){
+      steps {
+        archiveArtifacts '*.tar.gz'
+      }
+    }
+
   }
 }
