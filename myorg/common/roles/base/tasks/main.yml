@@ -1,0 +1,6 @@
+---
+# tasks file for base
+- name: base | install wget
+  yum:
+    name: wget
+    state: present
